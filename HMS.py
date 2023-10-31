@@ -5,7 +5,7 @@ import random
 import time
 import datetime 
 from tkinter import messagebox
-#for testing
+
 
 
 class Hospital():
