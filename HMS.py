@@ -309,40 +309,6 @@ class Hospital():
                         self.student_records.insert('', END, values = row)
                 conn.commit()
         conn.close()
-        
-
-        """sqlCon = pymysql.connect(host= "localhost", user="root", password = "Malaygiri13@", database = "hospitaldb")
-        cur = sqlCon.cursor()
-        cur.execute("select * from appointment")
-        rows = cur.fetchall()
-        if len(rows)!=0:
-                self.student_records.delete(*self.student_records.get_children())
-                for row in rows:
-                        self.student_records.insert('', END, values = row)
-                sqlCon.commit()
-        sqlCon.close()
-
-        sqlCon = pymysql.connect(host= "localhost", user="root", password = "Malaygiri13@", database = "hospitaldb")
-        cur = sqlCon.cursor()
-        cur.execute("select * from medicalhistory")
-        rows = cur.fetchall()
-        if len(rows)!=0:
-                self.student_records.delete(*self.student_records.get_children())
-                for row in rows:
-                        self.student_records.insert('', END, values = row)
-                sqlCon.commit()
-        sqlCon.close()
-
-        sqlCon = pymysql.connect(host= "localhost", user="root", password = "Malaygiri13@", database = "hospitaldb")
-        cur = sqlCon.cursor()
-        cur.execute("select * from doctor")
-        rows = cur.fetchall()
-        if len(rows)!=0:
-                self.student_records.delete(*self.student_records.get_children())
-                for row in rows:
-                        self.student_records.insert('', END, values = row)
-                sqlCon.commit()
-        sqlCon.close()"""
 
     def Reset(self):
         self.PatientID.set("")
@@ -394,8 +360,6 @@ class Hospital():
         self.ApptID = rowA[1]
         self.Date = rowA[2]
         self.DoctorID = rowA[3]
-        #else:
-        #        tkinter.messagebox.showerror("Multiple appointments of same patient")
 
         conn = mysql.connector.connect(host="localhost", username="root", password="12345MUS", database="hospital_management_system")
         cur = conn.cursor()
@@ -413,9 +377,6 @@ class Hospital():
                 self.Diagnosis = rowC[1]
                 
      
-
-        
-         
 
         
 
