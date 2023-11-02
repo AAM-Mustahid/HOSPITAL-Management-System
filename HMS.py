@@ -246,7 +246,7 @@ class Hospital():
         else:
                 conn = mysql.connector.connect(host="localhost", username="root", password="12345MUS", database="hospital_management_system")
                 cur = conn.cursor()
-                cur.execute("insert into patient values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(self.PatientID.get(),self.FirstName.get(),self.LastName.get(),self.Age.get(),self.Gender.get(),self.BloodGroop.get(),self.Address.get(),self.Mobile.get(),self.Email.get(),self.RoomNumber.get()))
+                cur.execute("insert into patient values(%s,%s,%s,%s,%s,%s,%s,%s,%s,%s)",(self.PatientID.get(),self.FirstName.get(),self.LastName.get(),self.Age.get(),self.Gender.get(),self.BloodGroup.get(),self.Address.get(),self.Mobile.get(),self.Email.get(),self.RoomNumber.get()))
                
                 conn.commit()
                 conn.close()
@@ -316,7 +316,7 @@ class Hospital():
         self.LastName.set("")
         self.Age.set("")
         self.Gender.set("")
-        self.BloodGroop.set("")
+        self.BloodGroup.set("")
         self.Address.set("")
         self.Mobile.set("")
         self.Email.set("")
@@ -346,7 +346,7 @@ class Hospital():
         self.LastName.set(row[2])
         self.Age.set(row[3])
         self.Gender.set(row[4])
-        self.BloodGroop.set(row[5])
+        self.BloodGroup.set(row[5])
         self.Address.set(row[6])
         self.Mobile.set(row[7])
         self.Email.set(row[8])
@@ -383,7 +383,7 @@ class Hospital():
     def update(self):
         conn = mysql.connector.connect(host="localhost", username="root", password="12345MUS", database="hospital_management_system")
         cur = conn.cursor()
-        cur.execute(("update patient set FirstName = %s, LastName = %s, Age = %s, Gender=%s, BloodGroup = %s, Address = %s, Mobile = %s, Email = %s, RoomNumber = %s where PatientID=%s"),(self.FirstName.get(),self.LastName.get(),self.Age.get(),self.Gender.get(),self.BloodGroop.get(),self.Address.get(),self.Mobile.get(),self.Email.get(),self.RoomNumber.get(),self.PatientID.get()))
+        cur.execute(("update patient set FirstName = %s, LastName = %s, Age = %s, Gender=%s, BloodGroup = %s, Address = %s, Mobile = %s, Email = %s, RoomNumber = %s where PatientID=%s"),(self.FirstName.get(),self.LastName.get(),self.Age.get(),self.Gender.get(),self.BloodGroup.get(),self.Address.get(),self.Mobile.get(),self.Email.get(),self.RoomNumber.get(),self.PatientID.get()))
         cur.execute(("update appointment set patientID = %s, date = %s, doctorID=%s where apptID = %s"),(self.PatientID.get(),self.Date.get(),self.DoctorID.get(),self.ApptID.get()))
         cur.execute(("update doctor set Name = %s, Age = %s where DoctorID = %s"),(self.DoctorName.get(),self.DoctorAge.get(),self.DoctorID.get()))
         cur.execute(("update medicalhistory set diagnosis = %s, date = %s where apptID = %s"),(self.Diagnosis.get(),self.Date.get(),self.ApptID.get()))
