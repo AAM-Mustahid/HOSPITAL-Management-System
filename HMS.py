@@ -395,18 +395,21 @@ class Hospital():
         tkinter.messagebox.showinfo("Update", "Record Successfully Updated")
 
     def deleteDB(self):
-        conn = mysql.connector.connect(host="localhost", username="root", password="12345MUS", database="hospital_management_system")
-        cur = conn.cursor()
-        cur.execute(("delete from appointment where apptID = %s"), self.ApptID.get())
-        cur.execute(("delete from doctor where DoctorID = %s"), self.DoctorID.get())
-        cur.execute(("delete from medicalhistory where apptID = %s"), self.ApptID.get())
-        cur.execute(("delete from patient where patientID = %s"), self.PatientID.get())
+          conn = mysql.connector.connect(host="localhost", username="root", password="12345MUS", database="hospital_management_system")
+          cur = conn.cursor()
+          query = "delete from patient where PatientID = %s"
+          value = (self.PatientID.get(),)
+         
+          
+          cur.execute(query,value)
+          conn.commit()
+          conn.close()
+          self.view_data()
+          
+          tkinter.messagebox.showinfo("Delete", "Record Successfully Deleted")
+          
 
-        conn.commit()
-        self.view_data()
-        conn.close()
-        self.Reset()
-        tkinter.messagebox.showinfo("Delete", "Record Successfully Deleted")                
+        
 
 
 
