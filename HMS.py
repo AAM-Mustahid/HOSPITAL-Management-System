@@ -238,7 +238,7 @@ class Hospital():
         self.btnAddNew= Button(ButtonsFrame, pady=1, bd=4, font=('arial', 14, 'bold'), width = 9, text = "Exit", command = self.iExit)
         self.btnAddNew.grid(row=4, column=0)
 
-        
+        #test
 #functions
     def add_patient(self):
         if self.PatientID.get() =="" or self.FirstName.get() == "" or self.LastName.get() == "":
