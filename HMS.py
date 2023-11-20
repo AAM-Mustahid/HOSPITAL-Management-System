@@ -271,13 +271,14 @@ class Hospital():
 
 
     def add_appointment(self):
-        if self.apptID.get() =="" or self.date.get() == "":
+        if self.ApptID.get() =="" or self.Date.get() == "":
                 tkinter.messagebox.showerror("Enter correct appointment details")
         else:
                 conn = mysql.connector.connect(host="localhost", username="root", password="12345MUS", database="hospital_management_system")
                 cur = conn.cursor()
                
-                cur.execute("insert into appointment values(%s,%s,%s,%s)",(self.PatientID.get(),self.DoctorID.get(),self.Date.get(),self.ApptID.get()))
+                cur.execute("INSERT INTO appointment (PatientID, ApptID, DoctorID, Date) VALUES (%s, %s, %s, %s)", (self.PatientID.get(), self.ApptID.get(), self.DoctorID.get(), self.Date.get()))
+
                 
                 conn.commit()
                 conn.close()
